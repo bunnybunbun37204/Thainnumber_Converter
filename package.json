@@ -1,7 +1,7 @@
 {
-  "name": "thainumtoarabicnum",
-  "version": "1.0.0",
-  "description": "transform thai number to arabic number",
+  "name": "thainumberconvert",
+  "version": "1.0.1",
+  "description": "convert Thai number to Arabic number",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/bunnybunbun37204/Thainnumber_Converter.git"
   },
   "keywords": [
-    "Thain",
+    "Thai",
     "number",
     "Arabic",
     "Number"
