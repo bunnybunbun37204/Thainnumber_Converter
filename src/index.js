@@ -1,36 +1,53 @@
-const SINGLE_ARABIC_NUMBER_REGEX = /\d/;
-
-/**
- * Converter for Thai numbers.
- * @param {string} data - The original number string.
- * @returns {ThaiNumber}
- * @constructor
- */
-
-const ThaiNumber = function (data) {
-    this.data = data;
-    return this;
-};
-/** Thai number characters and their Arabic number. */
-
-ThaiNumber.numbers = {
-    '0': 0,
-    '๐':0,
-    '๑': 1,
-    '๒': 2,
-    '๓': 3,
-    '๔': 4,
-    '๕': 5,
-    '๖': 6,
-    '๗': 7,
-    '๘': 8,
-    '๙': 9,
-    '๑0': 10,
-    '๑00': 100,
-    '๑000': 1000,
-    '๑๐': 10,
-    '๑๐๐': 100,
-    '๑๐๐๐': 1000,
+const ThaiNumbers_Dictionary = {
+  '0': '0',
+  '๐': '0',
+  '๑': '1',
+  '๒': '2',
+  '๓': '3',
+  '๔': '4',
+  '๕': '5',
+  '๖': '6',
+  '๗': '7',
+  '๘': '8',
+  '๙': '9',
 }
 
+function splitText(text, spliter) {
+  text = text.split(spliter);
+  let data = text.reduce((a, b) => a + b);
+  return data;
+}
+
+export default class ThaiNumber_Converter {
+  static toInteger(thainumber) {
+    let value = splitText(thainumber,',');
+    if (value.length === 1) value = value[0].split('');
+    let new_value = [];
+    for (let i = 0; i < value.length; i++) {
+      if (value[i] in ThaiNumbers_Dictionary) {
+        new_value[i] = ThaiNumbers_Dictionary[value[i]];
+      }
+      else {
+        return 'error check your data is it thai?';
+      }
+    }
+    new_value = new_value.reduce((a, b) => a + b);
+    return parseInt(new_value);
+  }
+  static toStringData(thainumber) {
+    let value = splitText(thainumber,',');
+    if (value.length === 1) value = value[0].split('');
+    let new_value = [];
+    for (let i = 0; i < value.length; i++) {
+      if (value[i] in ThaiNumbers_Dictionary) {
+        new_value[i] = ThaiNumbers_Dictionary[value[i]];
+      }
+      else {
+        return 'error check your data is it thai?';
+      }
+    }
+    new_value = new_value.reduce((a, b) => a + b);
+    return new_value;
+  }
+}
 

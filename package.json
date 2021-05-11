@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "transform thai number to arabic number",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/bunnybunbun37204/Thainnumber_Converter/issues"
   },
-  "homepage": "https://github.com/bunnybunbun37204/Thainnumber_Converter#readme",
-  "dependencies": {
-    "should": "^13.2.3"
-  }
+  "homepage": "https://github.com/bunnybunbun37204/Thainnumber_Converter#readme"
 }
