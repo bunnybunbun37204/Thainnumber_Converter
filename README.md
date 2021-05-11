@@ -5,7 +5,7 @@ Use the package manager [npm](https://nodejs.org/en/) to install npm packages.
 
 1. Use this to install all packages
 ```bash
-npm install thainumberconvert
+npm install thainumberconverter
 ```
 
 ## Example
