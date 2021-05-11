@@ -1,6 +1,6 @@
 {
-  "name": "thainumberconverter",
-  "version": "1.0.2",
+  "name": "@bunnybunbun37204/thainumberconverter",
+  "version": "1.0.3",
   "description": "convert Thai number to Arabic number",
   "main": "index.js",
   "type": "module",
