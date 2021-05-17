@@ -19,6 +19,7 @@ console.log(ThaiNumber_Converter.toInteger('๑,๑๑๓'));
 //convert to string
 console.log(ThaiNumber_Converter.toStringData('๑๒๓'));
 ```
-
+## What's new
+1. Bugs fixed
 hope you will be happy -Bunyawat
 

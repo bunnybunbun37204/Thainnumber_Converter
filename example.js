@@ -4,4 +4,4 @@ import ThaiNumber_Converter from './index.js';
 console.log(ThaiNumber_Converter.toInteger('๑,๑๑๓'));
 
 //convert to string
-console.log(ThaiNumber_Converter.toStringData('๑,๒๓'));
+console.log(ThaiNumber_Converter.toStringData('๑๑๒'));

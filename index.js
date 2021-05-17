@@ -10,7 +10,7 @@ const ThaiNumbers_Dictionary = {
   '๗': '7',
   '๘': '8',
   '๙': '9',
-}
+};
 
 function splitText(text, spliter) {
   text = text.split(spliter);
@@ -20,6 +20,7 @@ function splitText(text, spliter) {
 
 export default class ThaiNumber_Converter {
   static toInteger(thainumber) {
+    if (thainumber === '' || thainumber === null) return 'data is null';
     let value = splitText(thainumber,',');
     if (value.length === 1) value = value[0].split('');
     let new_value = [];
@@ -35,6 +36,7 @@ export default class ThaiNumber_Converter {
     return parseInt(new_value);
   }
   static toStringData(thainumber) {
+    if (thainumber === '' || thainumber === null) return 'data is null';
     let value = splitText(thainumber,',');
     if (value.length === 1) value = value[0].split('');
     let new_value = [];
