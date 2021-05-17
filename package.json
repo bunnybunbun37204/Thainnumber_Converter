@@ -1,6 +1,6 @@
 {
   "name": "thainumberconverter",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "convert Thai number to Arabic number",
   "main": "index.js",
   "type": "module",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bunnybunbun37204/Thainnumber_Converter.git"
+    "url": "https://github.com/bunnybunbun37204/Thainnumber_Converter.git"
   },
   "keywords": [
     "Thai",
@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/bunnybunbun37204/Thainnumber_Converter/issues"
   },
-  "homepage": "https://github.com/bunnybunbun37204/Thainnumber_Converter#readme"
+  "homepage": "https://github.com/bunnybunbun37204/Thainnumber_Converter#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "thai-baht-text": "^1.0.8"
+  }
 }
