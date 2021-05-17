@@ -17,7 +17,7 @@ import ThaiNumber_Converter from 'thainumberconverter';
 console.log(ThaiNumber_Converter.toInteger('๑,๑๑๓'));
 
 //convert to string
-console.log(ThaiNumber_Converter.toStringData('๑,๒๓'));
+console.log(ThaiNumber_Converter.toStringData('๑๒๓'));
 ```
 
 hope you will be happy -Bunyawat
