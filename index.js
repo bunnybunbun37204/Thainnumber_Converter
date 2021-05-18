@@ -119,6 +119,7 @@ export default class ThaiNumber_Converter {
         break;
       default:
         return "plz type option words, ordinal or wordsordinal"; 
+        break;
     }
   }
 }
