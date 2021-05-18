@@ -1,4 +1,5 @@
 import THBText from 'thai-baht-text';
+import numberToWords from 'number-to-words';
 
 const ThaiNumbers_Dictionary = {
   "0": "0",
@@ -65,10 +66,10 @@ export default class ThaiNumber_Converter {
     return new_value;
   }
 
-  static IntegerToThaiNumber(integernumber){
-    integernumber = integernumber.toString();
-    if (integernumber === "" || integernumber === null) return "data is null";
-    let value = splitText(integernumber, ",");
+  static IntegerToThaiNumber(number){
+    number = number.toString();
+    if (number === "" || number === null) return "data is null";
+    let value = splitText(number, ",");
     if (value.length === 1) value = value[0].split("");
     let new_value = [];
     for (let i = 0; i < value.length; i++) {
@@ -87,5 +88,35 @@ export default class ThaiNumber_Converter {
     let str = THBText(number);
     let value = str.split("บาทถ้วน");
     return value[0];
+  }
+  static ThaiNumToEnglish(thainumber, option){
+    let num = this.ThainumToInteger(thainumber);
+    if(option === "") return "plz type option words, ordinal or wordsordinal"; 
+    switch (option){
+      case "words":
+        return numberToWords.toWords(num);
+        break;
+      case "ordinal":
+        return numberToWords.toOrdinal(num);
+        break;
+      case "wordsordinal":
+        return numberToWords.toWordsOrdinal(num);
+        break;
+    }
+  } 
+  static IntegerToEnglish(number, option){
+    if(typeof (number) === 'string') number = parseInt(number);
+    if(option === "") return "plz type option words, ordinal or wordsordinal"; 
+    switch (option){
+      case "words":
+        return numberToWords.toWords(number);
+        break;
+      case "ordinal":
+        return numberToWords.toOrdinal(number);
+        break;
+      case "wordsordinal":
+        return numberToWords.toWordsOrdinal(number);
+        break;
+    }
   }
 }
