@@ -35,7 +35,7 @@ one hundred twelfth
 //you can type number arguments as string or integer if you want
 console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'ordinal'));
 console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'words'));
-console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'wordsordina'));
+console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'wordsordinal'));
 /* out put is 
 112th
 one hundred twelve
