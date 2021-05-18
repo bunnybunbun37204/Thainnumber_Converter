@@ -117,6 +117,8 @@ export default class ThaiNumber_Converter {
       case "wordsordinal":
         return numberToWords.toWordsOrdinal(number);
         break;
+      default:
+        return "plz type option words, ordinal or wordsordinal"; 
     }
   }
 }
