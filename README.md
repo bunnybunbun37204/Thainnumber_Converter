@@ -70,7 +70,7 @@ one hundred twelfth
 
 1. Bugs fixed
 2. Add function convert integer to thai number
-3. Add function convert integer to thai language by using my algorithm (In development) but it can convert in maximum conversion at 9999 and it may be Unstable. if you want to use stable version plz click [THIS](https://www.npmjs.com/package/thainumberconverter/v/1.2.0) to download a previous version.
+3. Add function convert integer to thai language by using my algorithm (In development) but it can convert in maximum number at 9999 and it may be Unstable. if you want to use stable version plz click [THIS](https://www.npmjs.com/package/thainumberconverter/v/1.2.0) to download a previous version.
 4. Add function convert Thai number to English form by using [number-to-word](https://github.com/marlun78/number-to-words) lib
 
 ## License
