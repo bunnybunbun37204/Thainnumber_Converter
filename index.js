@@ -77,7 +77,9 @@ function insertThai(value, arr) {
     arr.splice(1, 0, "พัน");
     arr.splice(3, 0, "ร้อย");
   }
-
+  else{
+    return 'maximum number that can be converted is 9999'
+  }
   return arr.reduce((a, b) => a + b);
 }
 

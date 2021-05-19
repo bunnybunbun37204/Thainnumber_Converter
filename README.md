@@ -26,10 +26,10 @@ console.log(ThaiNumber_Converter.IntegerToThaiNumber('112'));
 console.log(ThaiNumber_Converter.IntegerToThaiNumber(112));
 // output is ๑๑๒
 
-//convert Integer to Thai language
-console.log(ThaiNumber_Converter.IntegerToThaiLang(112));
-console.log(ThaiNumber_Converter.IntegerToThaiLang('112'));
-// output is หนึ่งร้อยสิบสอง
+//convert Integer to Thai language (The Maximum number that can be converted is 9999)
+console.log(ThaiNumber_Converter.IntegerToThaiLang(9999));
+console.log(ThaiNumber_Converter.IntegerToThaiLang('9999'));
+// output is เก้าพันเก้าร้อยเก้าสิบเก้า
 
 /* Thanks to Martin Eneqvist to number-to-word lib */
 /* Source code https://github.com/marlun78/number-to-words */
@@ -77,6 +77,6 @@ one hundred twelfth
 
 This project is under MIT license.
 
-### Some feature may be UNSTABLE because I delete some dependency to make my package be smaller size and I'm sorry, you can download 1.2.0 version to use more stable feature.
+#### Some feature may be UNSTABLE because I delete some dependency to make my package be smaller size and I'm sorry, you can download 1.2.0 version to use more stable feature.
 
 
