@@ -77,6 +77,6 @@ one hundred twelfth
 
 This project is under MIT license.
 
-#### Some feature may be UNSTABLE because I delete some dependency to make my package be smaller size and I'm sorry, you can download 1.2.0 version to use more stable feature.
+#### Some feature may be UNSTABLE because I delete some dependency to make my package use less dependency and I'm sorry, you can download 1.2.0 version to use more stable feature.
 
 
