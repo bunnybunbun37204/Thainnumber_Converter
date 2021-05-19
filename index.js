@@ -62,6 +62,17 @@ function checkTensdigit(data){
   else return data
 }
 
+//เก้าพันศูนย์ร้อยเก้าสิบเก้า
+function deleteZeroText(arr){
+  for (let i = 0; i < arr.length; i++){
+    if(arr[i] === 'ศูนย์'){ 
+      arr[i] = '';
+      arr[i+1] = '';
+    }
+  }
+  return arr;
+}
+
 function insertThai(value, arr) {
   if (value - 2 !== 0) arr[value - 2] = changeText(arr[value - 2]);
   if (arr[value - 1] === "หนึ่ง") arr[value - 1] = "เอ็ด";
@@ -80,6 +91,7 @@ function insertThai(value, arr) {
   else{
     return 'maximum number that can be converted is 9999'
   }
+  arr = deleteZeroText(arr);
   return arr.reduce((a, b) => a + b);
 }
 
@@ -191,3 +203,4 @@ export default class ThaiNumber_Converter {
   }
 }
 
+console.log(NumToLang(112));
