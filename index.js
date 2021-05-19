@@ -1,8 +1,8 @@
-import THBText from 'thai-baht-text';
-import numberToWords from 'number-to-words';
+import THBText from "thai-baht-text";
+import numberToWords from "number-to-words";
 
 const ThaiNumbers_Dictionary = {
-  "0": "0",
+  0: "0",
   "๐": "0",
   "๑": "1",
   "๒": "2",
@@ -28,10 +28,44 @@ const IntegerNumbers_Dictionary = {
   9: "๙",
 };
 
+const ThaiLang_Dictionary = {
+  0: "ศูนย์",
+  1: "หนึ่ง",
+  2: "สอง",
+  3: "สาม",
+  4: "สี่",
+  5: "ห้า",
+  6: "หก",
+  7: "เจ็ด",
+  8: "แปด",
+  9: "เก้า",
+};
+
 function splitText(text, spliter) {
   text = text.split(spliter);
   let data = text.reduce((a, b) => a + b);
   return data;
+}
+
+function changeText(value) {
+  if (value === "หนึ่ง") return "เอ็ด";
+  else if (value === "สอง") return "ยี่";
+}
+
+function insertThai(value, arr) {
+  if (value - 2 !== 0) arr[value - 2] = changeText(arr[value - 2]);
+  else {
+    if (arr[value - 1] === "หนึ่ง") arr[value - 1] = "เอ็ด";
+    if (value === 2) {
+      if (arr[0] === "หนึ่ง") arr[0] = "";
+      else arr[0] = changeText(arr[0]);
+      arr.splice(1, 0, "สิบ");
+    } else if (value === 3) {
+      arr.splice(1, 0, "ร้อย");
+    }
+  }
+
+  return arr.reduce((a, b) => a + b);
 }
 
 export default class ThaiNumber_Converter {
@@ -66,7 +100,7 @@ export default class ThaiNumber_Converter {
     return new_value;
   }
 
-  static IntegerToThaiNumber(number){
+  static IntegerToThaiNumber(number) {
     number = number.toString();
     if (number === "" || number === null) return "data is null";
     let value = splitText(number, ",");
@@ -83,16 +117,17 @@ export default class ThaiNumber_Converter {
     return new_value;
   }
 
-  static IntegerToThaiLang(number){
-    if(typeof (number) === 'string') number = parseInt(number);
+  static IntegerToThaiLang(number) {
+    if (typeof number === "string") number = parseInt(number);
     let str = THBText(number);
     let value = str.split("บาทถ้วน");
     return value[0];
   }
-  static ThaiNumToEnglish(thainumber, option){
+
+  static ThaiNumToEnglish(thainumber, option) {
     let num = this.ThainumToInteger(thainumber);
-    if(option === "") return "plz type option words, ordinal or wordsordinal"; 
-    switch (option){
+    if (option === "") return "plz type option words, ordinal or wordsordinal";
+    switch (option) {
       case "words":
         return numberToWords.toWords(num);
         break;
@@ -102,12 +137,15 @@ export default class ThaiNumber_Converter {
       case "wordsordinal":
         return numberToWords.toWordsOrdinal(num);
         break;
+      default:
+        return "plz type option words, ordinal or wordsordinal";
+        break;
     }
-  } 
-  static IntegerToEnglish(number, option){
-    if(typeof (number) === 'string') number = parseInt(number);
-    if(option === "") return "plz type option words, ordinal or wordsordinal"; 
-    switch (option){
+  }
+  static IntegerToEnglish(number, option) {
+    if (typeof number === "string") number = parseInt(number);
+    if (option === "") return "plz type option words, ordinal or wordsordinal";
+    switch (option) {
       case "words":
         return numberToWords.toWords(number);
         break;
@@ -118,8 +156,25 @@ export default class ThaiNumber_Converter {
         return numberToWords.toWordsOrdinal(number);
         break;
       default:
-        return "plz type option words, ordinal or wordsordinal"; 
+        return "plz type option words, ordinal or wordsordinal";
         break;
     }
   }
+  static NumToLang(number) {
+    number = number.toString();
+    if (number === "" || number === null) return "data is null";
+    let value = splitText(number, ",");
+    if (value.length === 1) value = value[0].split("");
+    let new_value = [];
+    for (let i = 0; i < value.length; i++) {
+      if (value[i] in ThaiLang_Dictionary) {
+        new_value[i] = ThaiLang_Dictionary[value[i]];
+      } else {
+        return "error check your data is it integer";
+      }
+    }
+    return insertThai(value.length, new_value);
+  }
 }
+
+console.log(ThaiNumber_Converter.NumToLang(1));
