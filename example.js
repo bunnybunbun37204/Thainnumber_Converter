@@ -8,13 +8,12 @@ console.log(ThaiNumber_Converter.ThainumToInteger('๑,๑๑๓'));
 console.log(ThaiNumber_Converter.ThaiNumtoStringData('๑๑๒'));
 // output is 112
 
-//convert Integer to thai
+//convert Integer to Thai
 console.log(ThaiNumber_Converter.IntegerToThaiNumber('112'));
 console.log(ThaiNumber_Converter.IntegerToThaiNumber(112));
 // output is ๑๑๒
 
-/* Thanks to antronic to convert number to ThaiLang*/
-/* Source code https://github.com/antronic/thai-baht-text-js */
+//convert Integer to Thai language
 console.log(ThaiNumber_Converter.IntegerToThaiLang(112));
 console.log(ThaiNumber_Converter.IntegerToThaiLang('112'));
 // output is หนึ่งร้อยสิบสอง

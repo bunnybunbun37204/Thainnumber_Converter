@@ -1,4 +1,3 @@
-import THBText from "thai-baht-text";
 import numberToWords from "number-to-words";
 
 const ThaiNumbers_Dictionary = {
@@ -50,22 +49,52 @@ function splitText(text, spliter) {
 function changeText(value) {
   if (value === "หนึ่ง") return "เอ็ด";
   else if (value === "สอง") return "ยี่";
+  else return value;
+}
+
+function Tensdigit(arr, index, position) {
+  if (arr[index] === "หนึ่ง") arr[index] = "";
+  arr.splice(position, 0, "สิบ");
+}
+
+function checkTensdigit(data){
+  if (data === 'เอ็ด') return '';
+  else return data
 }
 
 function insertThai(value, arr) {
   if (value - 2 !== 0) arr[value - 2] = changeText(arr[value - 2]);
-  else {
-    if (arr[value - 1] === "หนึ่ง") arr[value - 1] = "เอ็ด";
-    if (value === 2) {
-      if (arr[0] === "หนึ่ง") arr[0] = "";
-      else arr[0] = changeText(arr[0]);
-      arr.splice(1, 0, "สิบ");
-    } else if (value === 3) {
-      arr.splice(1, 0, "ร้อย");
-    }
+  if (arr[value - 1] === "หนึ่ง") arr[value - 1] = "เอ็ด";
+  if (value === 2) {
+    Tensdigit(arr, 0, 1);
+  } else if (value === 3) {
+    Tensdigit(arr, 1, 2);
+    arr[1] = checkTensdigit(arr[1]);
+    arr.splice(1, 0, "ร้อย");
+  } else if (value === 4) {
+    Tensdigit(arr, 2, 3);
+    arr[2] = checkTensdigit(arr[2]);
+    arr.splice(1, 0, "พัน");
+    arr.splice(3, 0, "ร้อย");
   }
 
   return arr.reduce((a, b) => a + b);
+}
+
+function NumToLang(number) {
+  number = number.toString();
+  if (number === "" || number === null) return "data is null";
+  let value = splitText(number, ",");
+  if (value.length === 1) value = value[0].split("");
+  let new_value = [];
+  for (let i = 0; i < value.length; i++) {
+    if (value[i] in ThaiLang_Dictionary) {
+      new_value[i] = ThaiLang_Dictionary[value[i]];
+    } else {
+      return "error check your data is it integer";
+    }
+  }
+  return insertThai(value.length, new_value);
 }
 
 export default class ThaiNumber_Converter {
@@ -117,11 +146,9 @@ export default class ThaiNumber_Converter {
     return new_value;
   }
 
-  static IntegerToThaiLang(number) {
-    if (typeof number === "string") number = parseInt(number);
-    let str = THBText(number);
-    let value = str.split("บาทถ้วน");
-    return value[0];
+  static IntegerToThaiLang(number){
+    number = number.toString();
+    return NumToLang(number);
   }
 
   static ThaiNumToEnglish(thainumber, option) {
@@ -160,21 +187,5 @@ export default class ThaiNumber_Converter {
         break;
     }
   }
-  static NumToLang(number) {
-    number = number.toString();
-    if (number === "" || number === null) return "data is null";
-    let value = splitText(number, ",");
-    if (value.length === 1) value = value[0].split("");
-    let new_value = [];
-    for (let i = 0; i < value.length; i++) {
-      if (value[i] in ThaiLang_Dictionary) {
-        new_value[i] = ThaiLang_Dictionary[value[i]];
-      } else {
-        return "error check your data is it integer";
-      }
-    }
-    return insertThai(value.length, new_value);
-  }
 }
 
-console.log(ThaiNumber_Converter.NumToLang(1));
