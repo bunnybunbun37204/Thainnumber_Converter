@@ -59,7 +59,7 @@ function Tensdigit(arr, index, position) {
 
 function checkTensdigit(data){
   if (data === 'เอ็ด') return '';
-  else return data
+  else return data;
 }
 
 //เก้าพันศูนย์ร้อยเก้าสิบเก้า
@@ -87,6 +87,27 @@ function insertThai(value, arr) {
     arr[2] = checkTensdigit(arr[2]);
     arr.splice(1, 0, "พัน");
     arr.splice(3, 0, "ร้อย");
+  } else if (value === 5){
+    Tensdigit(arr, 3, 4);
+    arr[3] = checkTensdigit(arr[3]);
+    arr.splice(1, 0, "หมื่น");
+    arr.splice(3, 0, "พัน");
+    arr.splice(5, 0, "ร้อย");
+  } else if (value === 6){
+    Tensdigit(arr, 4, 5);
+    arr[4] = checkTensdigit(arr[4]);
+    arr.splice(1, 0, "แสน");
+    arr.splice(3, 0, "หมื่น");
+    arr.splice(5, 0, "พัน");
+    arr.splice(7, 0, "ร้อย");
+  } else if (value === 7){
+    Tensdigit(arr, 5, 6);
+    arr[5] = checkTensdigit(arr[5]);
+    arr.splice(1, 0, "ล้าน");
+    arr.splice(3, 0, "แสน");
+    arr.splice(5, 0, "หมื่น");
+    arr.splice(7, 0, "พัน");
+    arr.splice(9, 0, "ร้อย");
   }
   else{
     return 'maximum number that can be converted is 9999'

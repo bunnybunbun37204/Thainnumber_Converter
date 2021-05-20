@@ -13,17 +13,18 @@ console.log(ThaiNumber_Converter.IntegerToThaiNumber('112'));
 console.log(ThaiNumber_Converter.IntegerToThaiNumber(112));
 // output is ๑๑๒
 
-//convert Integer to Thai language (The Maximum number that can be converted is 9999)
-console.log(ThaiNumber_Converter.IntegerToThaiLang(9999));
-console.log(ThaiNumber_Converter.IntegerToThaiLang('9999'));
-// output is เก้าพันเก้าร้อยเก้าสิบเก้า
+//convert Integer to Thai language (The Maximum number that can be converted is 9999999)
+console.log(ThaiNumber_Converter.IntegerToThaiLang(9999999));
+console.log(ThaiNumber_Converter.IntegerToThaiLang('9999999'));
+console.log(ThaiNumber_Converter.IntegerToThaiLang('9,999,999'));
+// output is เก้าล้านเก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้า
 
 /* Thanks to Martin Eneqvist to number-to-word lib */
 /* Source code https://github.com/marlun78/number-to-words */
 console.log(ThaiNumber_Converter.ThaiNumToEnglish('๑๑๒',"ordinal"));
 console.log(ThaiNumber_Converter.ThaiNumToEnglish('๑๑๒',"words"));
 console.log(ThaiNumber_Converter.ThaiNumToEnglish('๑๑๒',"wordsordinal"));
-/* out put is 
+/* output is 
 112th
 one hundred twelve
 one hundred twelfth
@@ -35,7 +36,7 @@ one hundred twelfth
 console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'ordinal'));
 console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'words'));
 console.log(ThaiNumber_Converter.IntegerToEnglish('112', 'wordsordinal'));
-/* out put is 
+/* output is 
 112th
 one hundred twelve
 one hundred twelfth
