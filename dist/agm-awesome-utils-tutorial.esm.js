@@ -60,6 +60,17 @@ var ThaiLang_Dictionary = {
   9: "เก้า"
 };
 
+function repeatStringNumTimes(string, times) {
+  var repeatedString = "";
+
+  while (times > 0) {
+    repeatedString += string;
+    times--;
+  }
+
+  return repeatedString;
+}
+
 function splitText(text, spliter) {
   text = text.split(spliter);
   var data = text.reduce(function (a, b) {
@@ -137,11 +148,8 @@ function insertThai(value, arr) {
   });
 }
 
-function NumToLang(number) {
-  number = number.toString();
-  if (number === "" || number === null) return "data is null";
-  var value = splitText(number, ",");
-  if (value.length === 1) value = value[0].split("");
+function NumToLang(value) {
+  if (value.length === 1) return ThaiLang_Dictionary[value];
   var new_value = [];
 
   for (var i = 0; i < value.length; i++) {
@@ -227,8 +235,43 @@ module.exports = /*#__PURE__*/function () {
   }, {
     key: "IntegerToThaiLang",
     value: function IntegerToThaiLang(number) {
+      var mtf = [[]];
+      var output = [];
       number = number.toString();
-      return NumToLang(number);
+      if (number.length === 1) return NumToLang(number);
+      if (number === "" || number === null) return "data is null";
+      var value = splitText(number, ",");
+      if (value.length === 1) value = value[0].split("");
+      var MAX_LOOP = Math.ceil(value.length / 7);
+      if (MAX_LOOP < 1) MAX_LOOP = 1;
+
+      for (var i = 0; i < MAX_LOOP; i++) {
+        for (var j = 0; j < 6; j++) {
+          if (mtf[i] === undefined) mtf[i] = [];
+          mtf[i][j] = value[value.length - j - 1];
+          var index = mtf[i].indexOf(undefined);
+          if (index > -1) mtf[i].splice(index, 1);
+        }
+
+        mtf[i] = mtf[i].reduce(function (a, b) {
+          return b + a;
+        });
+        value = value.replace(mtf[i], '');
+      }
+
+      var k;
+
+      for (k = 0; k < mtf.length; k++) {
+        output[k] = NumToLang(mtf[k]);
+      }
+
+      if (k > 0) {
+        var str = repeatStringNumTimes('ล้าน', k - 1);
+        output[k - 1] = output[k - 1].concat(str);
+      }
+      return output.reduce(function (a, b) {
+        return b + a;
+      });
     }
   }, {
     key: "ThaiNumToEnglish",
