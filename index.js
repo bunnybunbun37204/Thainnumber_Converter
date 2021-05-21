@@ -74,7 +74,7 @@ function deleteZeroText(arr) {
 }
 
 function insertThai(value, arr) {
-  if (value - 2 !== 0) arr[value - 2] = changeText(arr[value - 2]);
+  arr[value - 2] = changeText(arr[value - 2]);
   if (arr[value - 1] === "หนึ่ง") arr[value - 1] = "เอ็ด";
   if (value === 2) {
     Tensdigit(arr, 0, 1);
@@ -222,5 +222,3 @@ export default class ThaiNumber_Converter {
     }
   }
 }
-
-console.log(NumToLang(112));
