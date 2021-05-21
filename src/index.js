@@ -1,4 +1,4 @@
-import numberToWords from "number-to-words";
+const numberToWords = require('number-to-words');
 
 const ThaiNumbers_Dictionary = {
   0: "0",
@@ -76,39 +76,41 @@ function deleteZeroText(arr) {
 function insertThai(value, arr) {
   arr[value - 2] = changeText(arr[value - 2]);
   if (arr[value - 1] === "หนึ่ง") arr[value - 1] = "เอ็ด";
+
+  Tensdigit(arr, value - 2, value - 1);
+  arr[value - 2] = checkTensdigit(arr[value - 2]);
+
   if (value === 2) {
-    Tensdigit(arr, 0, 1);
   } else if (value === 3) {
-    Tensdigit(arr, 1, 2);
-    arr[1] = checkTensdigit(arr[1]);
     arr.splice(1, 0, "ร้อย");
   } else if (value === 4) {
-    Tensdigit(arr, 2, 3);
-    arr[2] = checkTensdigit(arr[2]);
     arr.splice(1, 0, "พัน");
     arr.splice(3, 0, "ร้อย");
   } else if (value === 5) {
-    Tensdigit(arr, 3, 4);
-    arr[3] = checkTensdigit(arr[3]);
     arr.splice(1, 0, "หมื่น");
     arr.splice(3, 0, "พัน");
     arr.splice(5, 0, "ร้อย");
   } else if (value === 6) {
-    Tensdigit(arr, 4, 5);
-    arr[4] = checkTensdigit(arr[4]);
     arr.splice(1, 0, "แสน");
     arr.splice(3, 0, "หมื่น");
     arr.splice(5, 0, "พัน");
     arr.splice(7, 0, "ร้อย");
   } else if (value === 7) {
-    Tensdigit(arr, 5, 6);
-    arr[5] = checkTensdigit(arr[5]);
     arr.splice(1, 0, "ล้าน");
     arr.splice(3, 0, "แสน");
     arr.splice(5, 0, "หมื่น");
     arr.splice(7, 0, "พัน");
     arr.splice(9, 0, "ร้อย");
-  } else {
+  } 
+  //else if (value === 8) {
+  //   arr.splice(1, 0, "สิบล้าน");
+  //   arr.splice(3, 0, "ล้าน");
+  //   arr.splice(5, 0, "แสน");
+  //   arr.splice(7, 0, "หมื่น");
+  //   arr.splice(9, 0, "พัน");
+  //   arr.splice(11, 0, "ร้อย");
+  // } 
+  else {
     return "maximum number that can be converted is 9999999";
   }
   arr = deleteZeroText(arr);
@@ -131,7 +133,7 @@ function NumToLang(number) {
   return insertThai(value.length, new_value);
 }
 
-export default class ThaiNumber_Converter {
+module.exports = class ThaiNumber_Converter {
   static ThainumToInteger(thainumber) {
     if (thainumber === "" || thainumber === null) return "data is null";
     let value = splitText(thainumber, ",");

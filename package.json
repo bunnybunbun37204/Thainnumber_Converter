@@ -1,11 +1,14 @@
 {
   "name": "thainumberconverter",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "convert Thai number to Arabic number",
-  "main": "index.js",
-  "type": "module",
+  "main": "dist/agm-awesome-utils-tutorial.cjs.js",
+  "module": "dist/agm-awesome-utils-tutorial.esm.js",
+  "browser": "dist/agm-awesome-utils-tutorial.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "test": "node test/spec",
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,11 +24,19 @@
   ],
   "author": "Bunyawat Naunnak",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bunnybunbun37204/Thainnumber_Converter/issues"
-  },
-  "homepage": "https://github.com/bunnybunbun37204/Thainnumber_Converter#readme",
   "dependencies": {
     "number-to-words": "^1.2.4"
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "rollup": "^2.36.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
 }
