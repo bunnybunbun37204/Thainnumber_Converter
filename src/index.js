@@ -120,7 +120,7 @@ function insertThai(value, arr) {
   //   arr.splice(11, 0, "ร้อย");
   // } 
   else {
-    return "maximum number that can be converted is 9999999";
+    return "error plz check your input";
   }
   arr = deleteZeroText(arr);
   return arr.reduce((a, b) => a + b);
