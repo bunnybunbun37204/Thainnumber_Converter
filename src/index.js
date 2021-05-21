@@ -199,7 +199,8 @@ module.exports = class ThaiNumber_Converter {
     let MAX_LOOP = Math.ceil(value.length / 7);
     if (MAX_LOOP < 1) MAX_LOOP = 1;
     else if (MAX_LOOP === 1) return NumToLang(number);
-    for (let i = 0; i < MAX_LOOP; i++) {
+    let i;
+    for (i = 0; i < MAX_LOOP; i++) {
       for (let j = 0; j < 6; j++) {
         if (mtf[i] === undefined) mtf[i] = [];
         mtf[i][j] = value[value.length - j - 1];
@@ -208,15 +209,10 @@ module.exports = class ThaiNumber_Converter {
       }
       mtf[i] = mtf[i].reduce((a, b) => b + a);
       value = value.replace(mtf[i], "");
+      output[i] = NumToLang(mtf[i]);
     }
-    let k;
-    for (k = 0; k < mtf.length; k++) {
-      output[k] = NumToLang(mtf[k]);
-    }
-    if (k > 0) {
-      let str = repeatStringNumTimes("ล้าน", k - 1);
-      output[k - 1] = output[k - 1].concat(str);
-    }
+    let str = repeatStringNumTimes("ล้าน", i - 1);
+    output[i - 1] = output[i - 1].concat(str);
     return output.reduce((a, b) => b + a);
   }
 
