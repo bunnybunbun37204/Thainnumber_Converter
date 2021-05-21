@@ -14,7 +14,7 @@ npm install thainumberconverter
 import ThaiNumber_Converter from 'thainumberconverter';
 
 ```
-## Usage (CommomJS)
+## Usage (CommonJS)
 
 ```js
 const ThaiNumber_Converter = require('thainumberconverter');
@@ -76,7 +76,7 @@ npm run test
 2. Add function convert integer to thai number.
 3. Add function convert integer to thai language.
 4. Add function convert Thai number to English form by using [number-to-word](https://github.com/marlun78/number-to-words) lib.
-5. This package can be used in ES and CommomJS.
+5. This package can be used in ES and CommonJS.
 
 ## License
 
