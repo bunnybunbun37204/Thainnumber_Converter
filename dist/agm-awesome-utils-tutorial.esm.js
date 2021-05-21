@@ -243,10 +243,9 @@ module.exports = /*#__PURE__*/function () {
       var value = splitText(number, ",");
       if (value.length === 1) value = value[0].split("");
       var MAX_LOOP = Math.ceil(value.length / 7);
-      if (MAX_LOOP < 1) MAX_LOOP = 1;else if (MAX_LOOP === 1) MAX_LOOP = 2;
-      var i;
+      if (MAX_LOOP < 1) MAX_LOOP = 1;else if (MAX_LOOP === 1) return NumToLang(number);
 
-      for (i = 0; i < MAX_LOOP; i++) {
+      for (var i = 0; i < MAX_LOOP; i++) {
         for (var j = 0; j < 6; j++) {
           if (mtf[i] === undefined) mtf[i] = [];
           mtf[i][j] = value[value.length - j - 1];
@@ -258,11 +257,19 @@ module.exports = /*#__PURE__*/function () {
           return b + a;
         });
         value = value.replace(mtf[i], "");
-        output[i] = NumToLang(mtf[i]);
       }
 
-      var str = repeatStringNumTimes("ล้าน", i - 1);
-      output[i - 1] = output[i - 1].concat(str);
+      var k;
+
+      for (k = 0; k < mtf.length; k++) {
+        output[k] = NumToLang(mtf[k]);
+      }
+
+      if (k > 0) {
+        var str = repeatStringNumTimes("ล้าน", k - 1);
+        output[k - 1] = output[k - 1].concat(str);
+      }
+
       return output.reduce(function (a, b) {
         return b + a;
       });
