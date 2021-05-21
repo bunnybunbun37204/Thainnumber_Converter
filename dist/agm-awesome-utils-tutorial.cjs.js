@@ -267,10 +267,8 @@ module.exports = /*#__PURE__*/function () {
         output[k] = NumToLang(mtf[k]);
       }
 
-      if (k > 0) {
-        var str = repeatStringNumTimes('ล้าน', k - 1);
-        output[k - 1] = output[k - 1].concat(str);
-      }
+      var str = repeatStringNumTimes('ล้าน', k - 1);
+      output[k - 1] = output[k - 1].concat(str);
       return output.reduce(function (a, b) {
         return b + a;
       });

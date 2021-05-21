@@ -1,4 +1,4 @@
-const numberToWords = require('number-to-words');
+const numberToWords = require("number-to-words");
 
 const ThaiNumbers_Dictionary = {
   0: "0",
@@ -110,7 +110,7 @@ function insertThai(value, arr) {
     arr.splice(5, 0, "หมื่น");
     arr.splice(7, 0, "พัน");
     arr.splice(9, 0, "ร้อย");
-  } 
+  }
   //else if (value === 8) {
   //   arr.splice(1, 0, "สิบล้าน");
   //   arr.splice(3, 0, "ล้าน");
@@ -118,7 +118,7 @@ function insertThai(value, arr) {
   //   arr.splice(7, 0, "หมื่น");
   //   arr.splice(9, 0, "พัน");
   //   arr.splice(11, 0, "ร้อย");
-  // } 
+  // }
   else {
     return "error plz check your input";
   }
@@ -127,7 +127,7 @@ function insertThai(value, arr) {
 }
 
 function NumToLang(value) {
-  if(value.length === 1) return ThaiLang_Dictionary[value];
+  if (value.length === 1) return ThaiLang_Dictionary[value];
   let new_value = [];
   for (let i = 0; i < value.length; i++) {
     if (value[i] in ThaiLang_Dictionary) {
@@ -192,31 +192,31 @@ module.exports = class ThaiNumber_Converter {
     let mtf = [[]];
     let output = [];
     number = number.toString();
-    if(number.length === 1) return NumToLang(number);
+    if (number.length === 1) return NumToLang(number);
     if (number === "" || number === null) return "data is null";
     let value = splitText(number, ",");
     if (value.length === 1) value = value[0].split("");
     let MAX_LOOP = Math.ceil(value.length / 7);
-    if(MAX_LOOP < 1) MAX_LOOP = 1;
-    for (let i = 0; i < MAX_LOOP; i++){
-      for (let j = 0; j < 6; j++){
-        if(mtf[i] === undefined) mtf[i] = [];
-        mtf[i][j] = value[value.length-j-1];
+    if (MAX_LOOP < 1) MAX_LOOP = 1;
+    for (let i = 0; i < MAX_LOOP; i++) {
+      for (let j = 0; j < 6; j++) {
+        if (mtf[i] === undefined) mtf[i] = [];
+        mtf[i][j] = value[value.length - j - 1];
         let index = mtf[i].indexOf(undefined);
         if (index > -1) mtf[i].splice(index, 1);
       }
-     mtf[i] = mtf[i].reduce((a,b)=>b+a);
-     value = value.replace(mtf[i],'');
+      mtf[i] = mtf[i].reduce((a, b) => b + a);
+      value = value.replace(mtf[i], "");
     }
     let k;
-    for (k= 0; k< mtf.length; k++){
+    for (k = 0; k < mtf.length; k++) {
       output[k] = NumToLang(mtf[k]);
     }
-    if(k > 0) {
-      let str = repeatStringNumTimes('ล้าน',k-1);
-      output[k-1] = output[k-1].concat(str);
-    };
-    return output.reduce((a,b)=>b+a);
+    if (k > 0) {
+      let str = repeatStringNumTimes("ล้าน", k - 1);
+      output[k - 1] = output[k - 1].concat(str);
+    }
+    return output.reduce((a, b) => b + a);
   }
 
   static ThaiNumToEnglish(thainumber, option) {
@@ -255,4 +255,4 @@ module.exports = class ThaiNumber_Converter {
         break;
     }
   }
-}
+};
