@@ -40,6 +40,15 @@ const ThaiLang_Dictionary = {
   9: "เก้า",
 };
 
+function repeatStringNumTimes(string, times) {
+  var repeatedString = "";
+  while (times > 0) {
+    repeatedString += string;
+    times--;
+  }
+  return repeatedString;
+}
+
 function splitText(text, spliter) {
   text = text.split(spliter);
   let data = text.reduce((a, b) => a + b);
@@ -117,11 +126,8 @@ function insertThai(value, arr) {
   return arr.reduce((a, b) => a + b);
 }
 
-function NumToLang(number) {
-  number = number.toString();
-  if (number === "" || number === null) return "data is null";
-  let value = splitText(number, ",");
-  if (value.length === 1) value = value[0].split("");
+function NumToLang(value) {
+  if(value.length === 1) return ThaiLang_Dictionary[value];
   let new_value = [];
   for (let i = 0; i < value.length; i++) {
     if (value[i] in ThaiLang_Dictionary) {
@@ -183,8 +189,34 @@ module.exports = class ThaiNumber_Converter {
   }
 
   static IntegerToThaiLang(number) {
+    let mtf = [[]];
+    let output = [];
     number = number.toString();
-    return NumToLang(number);
+    if(number.length === 1) return NumToLang(number);
+    if (number === "" || number === null) return "data is null";
+    let value = splitText(number, ",");
+    if (value.length === 1) value = value[0].split("");
+    let MAX_LOOP = Math.ceil(value.length / 7);
+    if(MAX_LOOP < 1) MAX_LOOP = 1;
+    for (let i = 0; i < MAX_LOOP; i++){
+      for (let j = 0; j < 6; j++){
+        if(mtf[i] === undefined) mtf[i] = [];
+        mtf[i][j] = value[value.length-j-1];
+        let index = mtf[i].indexOf(undefined);
+        if (index > -1) mtf[i].splice(index, 1);
+      }
+     mtf[i] = mtf[i].reduce((a,b)=>b+a);
+     value = value.replace(mtf[i],'');
+    }
+    let k;
+    for (k= 0; k< mtf.length; k++){
+      output[k] = NumToLang(mtf[k]);
+    }
+    if(k > 0) {
+      let str = repeatStringNumTimes('ล้าน',k-1);
+      output[k-1] = output[k-1].concat(str);
+    };
+    return output.reduce((a,b)=>b+a);
   }
 
   static ThaiNumToEnglish(thainumber, option) {
