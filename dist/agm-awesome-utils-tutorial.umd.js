@@ -335,7 +335,7 @@
      * @example ThaiNumToEnglish('๑๑๒','ordinal')=> '112th'
      * ThaiNumToEnglish('๑๑๒','words')=> 'one hundred twelve'
      * ThaiNumToEnglish('๑๑๒','wordsordinal')=> 'one hundred twelfth'
-     * @param {string|number} number
+     * @param {string} thainumber
      * @param {string} option
      * @returns {string}
      */

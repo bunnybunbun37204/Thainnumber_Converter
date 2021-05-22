@@ -1,8 +1,8 @@
 module.exports = {
-  ThaiNumToInteger: require('./ThainumToInteger.js'),
-  ThaiNumToStringData: require('./ThaiNumtoStringData.js'),
-  ThaiNumToEnglish: require('./ThaiNumToEnglish.js'),
-  IntegerToThaiNumber: require('./IntegerToThaiNumber.js'),
-  IntegerToThaiLang: require('./IntegerToThaiLang.js'),
-  IntegerToEnglish: require('./IntegerToEnglish.js')
+  ThaiNumToInteger: require('../src/ThainumToInteger'),
+  ThaiNumToStringData: require('../src/ThaiNumtoStringData'),
+  ThaiNumToEnglish: require('../src/ThaiNumToEnglish'),
+  IntegerToThaiNumber: require('../src/IntegerToThaiNumber'),
+  IntegerToThaiLang: require('../src/IntegerToThaiLang'),
+  IntegerToEnglish: require('../src/IntegerToEnglish')
 };
