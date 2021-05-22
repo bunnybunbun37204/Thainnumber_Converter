@@ -22,7 +22,7 @@ const IntegerNumbers_Dictionary = {
 /**
  * Converts an Integer number to Thai number as String.
  * @example IntegerToThaiNumber('112') => '๑๑๒'
- * @param {string} number
+ * @param {string|number} number
  * @returns {string}
  */
 

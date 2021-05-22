@@ -27,7 +27,7 @@ console.log(ThaiNumber_Converter.ThaiNumToInteger('๑,๑๑๓'));
 // output is 1113
 
 //convert to string
-console.log(ThaiNumber_Converter.ThaiNumtoStringData('๑๑๒'));
+console.log(ThaiNumber_Converter.ThaiNumToStringData('๑๑๒'));
 // output is 112
 
 //convert Integer to Thai 
@@ -77,6 +77,7 @@ npm run test
 3. Add function convert integer to thai language.
 4. Add function convert Thai number to English form by using [number-to-word](https://github.com/marlun78/number-to-words) lib.
 5. This package can be used in ES and CommonJS.
+6. Add string docs.
 
 ## License
 
