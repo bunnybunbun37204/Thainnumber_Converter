@@ -35,11 +35,11 @@ console.log(ThaiNumber_Converter.IntegerToThaiNumber('112'));
 console.log(ThaiNumber_Converter.IntegerToThaiNumber(112));
 // output is ๑๑๒
 
-//convert Integer to Thai language (The Maximum number that can be converted is 9999999)
-console.log(ThaiNumber_Converter.IntegerToThaiLang(99999999999999999999));
-console.log(ThaiNumber_Converter.IntegerToThaiLang('9999999999999'));
-console.log(ThaiNumber_Converter.IntegerToThaiLang('9,999,999,999,999'));
-// output is เก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้าล้านเก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้า'
+//convert Integer to Thai language (The Maximum number that can be converted is 100,000,000,000,000,000)
+console.log(ThaiNumber_Converter.IntegerToThaiLang(10000000000000000));
+console.log(ThaiNumber_Converter.IntegerToThaiLang('100000000000000000'));
+console.log(ThaiNumber_Converter.IntegerToThaiLang('100,000,000,000,000,000'));
+// output is หนึ่งแสนล้านล้าน'
 
 /* Thanks to Martin Eneqvist for number-to-word lib */
 /* Source code https://github.com/marlun78/number-to-words */
@@ -74,7 +74,7 @@ npm run test
 
 1. Bugs fixed
 2. Add function convert integer to thai number.
-3. Add function convert integer to thai language.
+3. Add function convert integer to thai language at maximum number (100,000,000,000,000,000)
 4. Add function convert Thai number to English form by using [number-to-word](https://github.com/marlun78/number-to-words) lib.
 5. This package can be used in ES and CommonJS.
 6. Add string docs.

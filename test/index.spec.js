@@ -19,5 +19,5 @@ assert.strictEqual(ThaiNumber_Converter.IntegerToThaiLang('1000101'),'หนึ�
 console.log(`\u001B[32m✓\u001B[39m Tests 8 passed`);
 assert.strictEqual(ThaiNumber_Converter.IntegerToThaiLang('101'),'หนึ่งร้อยเอ็ด');
 console.log(`\u001B[32m✓\u001B[39m Tests 9 passed`);
-assert.strictEqual(ThaiNumber_Converter.IntegerToThaiLang('121001'),'หนึ่งแสนสองหมื่นหนึ่งพันเอ็ด');
+assert.strictEqual(ThaiNumber_Converter.IntegerToThaiLang('100,000,000,000,000,000'),'หนึ่งแสนล้านล้าน');
 console.log(`\u001B[32m✓\u001B[39m Tests 10 passed`);
