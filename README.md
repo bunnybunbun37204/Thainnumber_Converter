@@ -23,7 +23,7 @@ const ThaiNumber_Converter = require('thainumberconverter');
 ```js
 
 //convert to number
-console.log(ThaiNumber_Converter.ThainumToInteger('๑,๑๑๓'));
+console.log(ThaiNumber_Converter.ThaiNumToInteger('๑,๑๑๓'));
 // output is 1113
 
 //convert to string
