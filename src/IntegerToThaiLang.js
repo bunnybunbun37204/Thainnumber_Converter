@@ -106,7 +106,6 @@ function NumToLang(value) {
 
 /**
  * Converts an Integer number to Thai language.
- * convert Integer to Thai language (The Maximum number that can be converted is 100,000,000,000,000,000)
  * @example IntegerToThaiLang(112)=> 'หนึ่งร้อยสิบสอง'
  * @param {string|number} number
  * @returns {string}

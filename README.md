@@ -35,11 +35,11 @@ console.log(ThaiNumber_Converter.IntegerToThaiNumber('112'));
 console.log(ThaiNumber_Converter.IntegerToThaiNumber(112));
 // output is ๑๑๒
 
-//convert Integer to Thai language (The Maximum number that can be converted is 100,000,000,000,000,000)
-console.log(ThaiNumber_Converter.IntegerToThaiLang(10000000000000000));
+//convert Integer to Thai language
+console.log(ThaiNumber_Converter.IntegerToThaiLang(100000000000000000));
 console.log(ThaiNumber_Converter.IntegerToThaiLang('100000000000000000'));
 console.log(ThaiNumber_Converter.IntegerToThaiLang('100,000,000,000,000,000'));
-// output is หนึ่งแสนล้านล้าน'
+// output is หนึ่งแสนล้านล้าน
 
 /* Thanks to Martin Eneqvist for number-to-word lib */
 /* Source code https://github.com/marlun78/number-to-words */
