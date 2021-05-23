@@ -64,7 +64,7 @@ one hundred twelve
 one hundred twelfth
 */
 ```
-## test
+## Test
 
 ```bash
 npm run test
