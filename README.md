@@ -19,6 +19,13 @@ import ThaiNumber_Converter from 'thainumberconverter';
 ```js
 const ThaiNumber_Converter = require('thainumberconverter');
 ```
+
+## Features
+1. Add function convert integer to thai number.
+2. Add function convert integer to thai language at maximum number (100,000,000,000,000,000)
+3. Add function convert Thai number to English form by using [number-to-word](https://github.com/marlun78/number-to-words) lib.
+4. This package can be used in ES and CommonJS.
+
 ## Example
 ```js
 
@@ -73,11 +80,8 @@ npm run test
 ## What's new (IMPORTANT!!)
 
 1. Bugs fixed
-2. Add function convert integer to thai number.
-3. Add function convert integer to thai language at maximum number (100,000,000,000,000,000)
-4. Add function convert Thai number to English form by using [number-to-word](https://github.com/marlun78/number-to-words) lib.
-5. This package can be used in ES and CommonJS.
-6. Add string docs.
+2. Add string docs.
+3. Add .eslint file
 
 ## License
 
