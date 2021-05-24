@@ -4,5 +4,5 @@ module.exports = {
   ThaiNumToEnglish: require('../src/ThaiNumToEnglish'),
   IntegerToThaiNumber: require('../src/IntegerToThaiNumber'),
   IntegerToThaiLang: require('../src/IntegerToThaiLang'),
-  IntegerToEnglish: require('../src/IntegerToEnglish')
+  IntegerToEnglish: require('../src/IntegerToEnglish'),
 };
