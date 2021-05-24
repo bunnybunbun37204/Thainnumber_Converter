@@ -1,7 +1,9 @@
+/* eslint-disable new-cap */
+/* eslint-disable require-jsdoc */
 'use strict';
 
 const ThainumToInteger = require('./ThainumToInteger.js');
-const numberToWords = require("number-to-words");
+const numberToWords = require('number-to-words');
 
 /**
  * Converts an Thai number to English form.
@@ -14,20 +16,20 @@ const numberToWords = require("number-to-words");
  */
 
 function ThaiNumToEnglish(thainumber, option) {
-  let num = ThainumToInteger(thainumber);
-  if (option === "") return "plz type option words, ordinal or wordsordinal";
+  const num = ThainumToInteger(thainumber);
+  if (option === '') return 'plz type option words, ordinal or wordsordinal';
   switch (option) {
-    case "words":
+    case 'words':
       return numberToWords.toWords(num);
       break;
-    case "ordinal":
+    case 'ordinal':
       return numberToWords.toOrdinal(num);
       break;
-    case "wordsordinal":
+    case 'wordsordinal':
       return numberToWords.toWordsOrdinal(num);
       break;
     default:
-      return "plz type option words, ordinal or wordsordinal";
+      return 'plz type option words, ordinal or wordsordinal';
       break;
   }
 }

@@ -1,6 +1,7 @@
+/* eslint-disable require-jsdoc */
 'use strict';
 
-const numberToWords = require("number-to-words");
+const numberToWords = require('number-to-words');
 
 /**
  * Converts an Integer number to English form.
@@ -13,20 +14,20 @@ const numberToWords = require("number-to-words");
  */
 
 function IntegerToEnglish(number, option) {
-  if (typeof number === "string") number = parseInt(number);
-  if (option === "") return "plz type option words, ordinal or wordsordinal";
+  if (typeof number === 'string') number = parseInt(number);
+  if (option === '') return 'plz type option words, ordinal or wordsordinal';
   switch (option) {
-    case "words":
+    case 'words':
       return numberToWords.toWords(number);
       break;
-    case "ordinal":
+    case 'ordinal':
       return numberToWords.toOrdinal(number);
       break;
-    case "wordsordinal":
+    case 'wordsordinal':
       return numberToWords.toWordsOrdinal(number);
       break;
     default:
-      return "plz type option words, ordinal or wordsordinal";
+      return 'plz type option words, ordinal or wordsordinal';
       break;
   }
 }

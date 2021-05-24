@@ -1,22 +1,23 @@
+/* eslint-disable require-jsdoc */
 'use strict';
 
 function splitText(text, spliter) {
   text = text.split(spliter);
-  let data = text.reduce((a, b) => a + b);
+  const data = text.reduce((a, b) => a + b);
   return data;
 }
 
-const IntegerNumbers_Dictionary = {
-  0: "๐",
-  1: "๑",
-  2: "๒",
-  3: "๓",
-  4: "๔",
-  5: "๕",
-  6: "๖",
-  7: "๗",
-  8: "๘",
-  9: "๙",
+const INTEGERNUMBERS_DICTIONARY = {
+  0: '๐',
+  1: '๑',
+  2: '๒',
+  3: '๓',
+  4: '๔',
+  5: '๕',
+  6: '๖',
+  7: '๗',
+  8: '๘',
+  9: '๙',
 };
 
 /**
@@ -28,19 +29,19 @@ const IntegerNumbers_Dictionary = {
 
 function IntegerToThaiNumber(number) {
   number = number.toString();
-  if (number === "" || number === null) return "data is null";
-  let value = splitText(number, ",");
-  if (value.length === 1) value = value[0].split("");
-  let new_value = [];
+  if (number === '' || number === null) return 'data is null';
+  let value = splitText(number, ',');
+  if (value.length === 1) value = value[0].split('');
+  let newvalue = [];
   for (let i = 0; i < value.length; i++) {
-    if (value[i] in IntegerNumbers_Dictionary) {
-      new_value[i] = IntegerNumbers_Dictionary[value[i]];
+    if (value[i] in INTEGERNUMBERS_DICTIONARY) {
+      newvalue[i] = INTEGERNUMBERS_DICTIONARY[value[i]];
     } else {
-      return "error check your data is it integer";
+      return 'error check your data is it integer';
     }
   }
-  new_value = new_value.reduce((a, b) => a + b);
-  return new_value;
+  newvalue = newvalue.reduce((a, b) => a + b);
+  return newvalue;
 }
 
 module.exports = IntegerToThaiNumber;
