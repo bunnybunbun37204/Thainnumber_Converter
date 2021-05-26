@@ -31,7 +31,7 @@
    * Converts an Thai number to Integer as number.
    * @example ThainumToInteger('๑๑๒') => 112
    * @param {string} thainumber
-   * @returns {number}
+   * @returns {number} integernumber
    */
 
 
@@ -49,10 +49,10 @@
       }
     }
 
-    newvalue = newvalue.reduce(function (a, b) {
+    var integernumber = newvalue.reduce(function (a, b) {
       return a + b;
     });
-    return parseInt(newvalue);
+    return parseInt(integernumber);
   }
 
   var ThainumToInteger_1 = ThainumToInteger;
@@ -84,7 +84,7 @@
    * Converts an Thai number to Integer as String.
    * @example ThaiNumtoStringData('๑๑๒') => '112'
    * @param {string} thainumber
-   * @returns {string}
+   * @returns {string} stringnumber
    */
 
 
@@ -102,10 +102,10 @@
       }
     }
 
-    newvalue = newvalue.reduce(function (a, b) {
+    var stringnumber = newvalue.reduce(function (a, b) {
       return a + b;
     });
-    return newvalue;
+    return stringnumber;
   }
 
   var ThaiNumtoStringData_1 = ThaiNumtoStringData;
@@ -392,7 +392,7 @@
    * Converts an Integer number to Thai number as String.
    * @example IntegerToThaiNumber('112') => '๑๑๒'
    * @param {string|number} number
-   * @returns {string}
+   * @returns {string} thainumber
    */
 
   function IntegerToThaiNumber(number) {
@@ -410,10 +410,10 @@
       }
     }
 
-    newvalue = newvalue.reduce(function (a, b) {
+    var thainumber = newvalue.reduce(function (a, b) {
       return a + b;
     });
-    return newvalue;
+    return thainumber;
   }
 
   var IntegerToThaiNumber_1 = IntegerToThaiNumber;
@@ -530,7 +530,7 @@
    * Converts an Integer number to Thai language.
    * @example IntegerToThaiLang(112)=> 'หนึ่งร้อยสิบสอง'
    * @param {string|number} number
-   * @returns {string}
+   * @returns {string} thailanguage
    */
 
 
@@ -563,9 +563,10 @@
 
     var str = repeatStringNumTimes('ล้าน', i - 1);
     output[i - 1] = output[i - 1].concat(str);
-    return output.reduce(function (a, b) {
+    var thailanguage = output.reduce(function (a, b) {
       return b + a;
     });
+    return thailanguage;
   }
 
   var IntegerToThaiLang_1 = IntegerToThaiLang;

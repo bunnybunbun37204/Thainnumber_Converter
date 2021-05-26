@@ -25,14 +25,14 @@ function splitText(text, spliter) {
  * Converts an Thai number to Integer as String.
  * @example ThaiNumtoStringData('๑๑๒') => '112'
  * @param {string} thainumber
- * @returns {string}
+ * @returns {string} stringnumber
  */
 
 function ThaiNumtoStringData(thainumber) {
   if (thainumber === '' || thainumber === null) return 'data is null';
   let value = splitText(thainumber, ',');
   if (value.length === 1) value = value[0].split('');
-  let newvalue = [];
+  const newvalue = [];
   for (let i = 0; i < value.length; i++) {
     if (value[i] in THHAINUMBERS_DICTIONARY) {
       newvalue[i] = THHAINUMBERS_DICTIONARY[value[i]];
@@ -40,8 +40,8 @@ function ThaiNumtoStringData(thainumber) {
       return 'error check your data is it thai?';
     }
   }
-  newvalue = newvalue.reduce((a, b) => a + b);
-  return newvalue;
+  const stringnumber = newvalue.reduce((a, b) => a + b);
+  return stringnumber;
 }
 
 module.exports = ThaiNumtoStringData;

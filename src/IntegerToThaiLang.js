@@ -108,7 +108,7 @@ function numtolang(value) {
  * Converts an Integer number to Thai language.
  * @example IntegerToThaiLang(112)=> 'หนึ่งร้อยสิบสอง'
  * @param {string|number} number
- * @returns {string}
+ * @returns {string} thailanguage
  */
 
 function IntegerToThaiLang(number) {
@@ -136,7 +136,8 @@ function IntegerToThaiLang(number) {
   }
   const str = repeatStringNumTimes('ล้าน', i - 1);
   output[i - 1] = output[i - 1].concat(str);
-  return output.reduce((a, b) => b + a);
+  const thailanguage = output.reduce((a, b) => b + a);
+  return thailanguage;
 }
 
 module.exports = IntegerToThaiLang;

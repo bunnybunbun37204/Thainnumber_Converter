@@ -24,7 +24,7 @@ const INTEGERNUMBERS_DICTIONARY = {
  * Converts an Integer number to Thai number as String.
  * @example IntegerToThaiNumber('112') => '๑๑๒'
  * @param {string|number} number
- * @returns {string}
+ * @returns {string} thainumber
  */
 
 function IntegerToThaiNumber(number) {
@@ -32,7 +32,7 @@ function IntegerToThaiNumber(number) {
   if (number === '' || number === null) return 'data is null';
   let value = splitText(number, ',');
   if (value.length === 1) value = value[0].split('');
-  let newvalue = [];
+  const newvalue = [];
   for (let i = 0; i < value.length; i++) {
     if (value[i] in INTEGERNUMBERS_DICTIONARY) {
       newvalue[i] = INTEGERNUMBERS_DICTIONARY[value[i]];
@@ -40,8 +40,8 @@ function IntegerToThaiNumber(number) {
       return 'error check your data is it integer';
     }
   }
-  newvalue = newvalue.reduce((a, b) => a + b);
-  return newvalue;
+  const thainumber = newvalue.reduce((a, b) => a + b);
+  return thainumber;
 }
 
 module.exports = IntegerToThaiNumber;
