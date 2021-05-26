@@ -1,6 +1,6 @@
 {
   "name": "thainumberconverter",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "convert Thai number to Arabic number",
   "main": "dist/agm-awesome-utils-tutorial.cjs.js",
   "module": "dist/agm-awesome-utils-tutorial.esm.js",
